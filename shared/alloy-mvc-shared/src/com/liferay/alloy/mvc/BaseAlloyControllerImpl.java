@@ -19,6 +19,7 @@ import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.bean.ConstantsBeanFactoryUtil;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -271,8 +272,10 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 	}
 
 	@Override
-	public void setUser(User user) {
+	public void setUser(User user) throws PortalException {
 		this.user = user;
+
+		themeDisplay.setUser(user);
 	}
 
 	@Override

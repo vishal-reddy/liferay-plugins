@@ -14,6 +14,7 @@
 
 package com.liferay.alloy.mvc;
 
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.User;
@@ -50,7 +51,7 @@ public interface AlloyController {
 
 	public void setPageContext(PageContext pageContext);
 
-	public void setUser(User user);
+	public void setUser(User user) throws PortalException;
 
 	public String translate(String pattern, Object... arguments);
 
