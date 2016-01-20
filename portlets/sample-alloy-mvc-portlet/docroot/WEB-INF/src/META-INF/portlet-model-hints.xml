@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <model-hints>
-	<model name="com.liferay.ams.model.Asset">
+	<model name="com.liferay.samplealloymvc.model.Asset">
 		<field name="assetId" type="long" />
 		<field name="companyId" type="long" />
 		<field name="userId" type="long" />
@@ -13,7 +13,7 @@
 		<field name="inactiveDate" type="Date" />
 		<field name="active" type="boolean" />
 	</model>
-	<model name="com.liferay.ams.model.Checkout">
+	<model name="com.liferay.samplealloymvc.model.Checkout">
 		<field name="checkoutId" type="long" />
 		<field name="companyId" type="long" />
 		<field name="userId" type="long" />
@@ -25,7 +25,7 @@
 		<field name="expectedCheckInDate" type="Date" />
 		<field name="actualCheckInDate" type="Date" />
 	</model>
-	<model name="com.liferay.ams.model.Definition">
+	<model name="com.liferay.samplealloymvc.model.Definition">
 		<field name="definitionId" type="long" />
 		<field name="groupId" type="long" />
 		<field name="companyId" type="long" />
@@ -40,7 +40,7 @@
 		<field name="quantity" type="int" />
 		<field name="price" type="double" />
 	</model>
-	<model name="com.liferay.ams.model.Type">
+	<model name="com.liferay.samplealloymvc.model.Type">
 		<field name="typeId" type="long" />
 		<field name="groupId" type="long" />
 		<field name="name" type="String" />
