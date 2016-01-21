@@ -6,10 +6,6 @@
 	<import class="com.liferay.samplealloymvc.model.Checkout" />
 	<import class="com.liferay.samplealloymvc.model.Definition" />
 	<import class="com.liferay.samplealloymvc.model.Type" />
-	<import class="com.liferay.samplealloymvc.model.Asset" />
-	<import class="com.liferay.samplealloymvc.model.Checkout" />
-	<import class="com.liferay.samplealloymvc.model.Definition" />
-	<import class="com.liferay.samplealloymvc.model.Type" />
 	<class name="com.liferay.samplealloymvc.model.impl.AssetImpl" table="SAM_Asset">
 		<id name="assetId" type="long">
 			<generator class="assigned" />
