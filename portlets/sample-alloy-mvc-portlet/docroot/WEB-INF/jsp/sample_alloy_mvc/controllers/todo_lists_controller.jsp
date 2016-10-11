@@ -15,6 +15,7 @@
 --%>
 
 <%@ include file="/WEB-INF/jsp/sample_alloy_mvc/controllers/init.jspf" %>
+<%@ include file="/WEB-INF/jsp/util/todo_item_build_scheduler_message_listener.jspf" %>
 
 <%!
 public static class AlloyControllerImpl extends BaseAlloyControllerImpl {
@@ -130,6 +131,16 @@ public static class AlloyControllerImpl extends BaseAlloyControllerImpl {
 		List<SAMTodoItem> samTodoItems = samTodoItemAlloyServiceInvoker.executeDynamicQuery(new Object[] {"samTodoListId", samTodoList.getSamTodoListId()}, samTodoItemSearchContainer.getStart(), samTodoItemSearchContainer.getEnd(), samTodoItemsOBC);
 
 		renderRequest.setAttribute("samTodoItems", samTodoItems);
+	}
+
+	@Override
+	protected MessageListener buildSchedulerMessageListener() {
+		return SAMTodoItemSchedulerMessageListener.getInstance(this);
+	}
+
+	@Override
+	protected Trigger getSchedulerTrigger() {
+		return new CronTrigger(getSchedulerJobName(), getMessageListenerGroupName(), "* * 12 * * ? *");
 	}
 
 	private SAMTodoList _fetchSAMTodoList() throws Exception {
