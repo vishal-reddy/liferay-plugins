@@ -14,6 +14,10 @@
 
 package com.liferay.alloy.mvc;
 
+import com.liferay.portal.kernel.language.LanguageUtil;
+
+import java.util.ResourceBundle;
+
 /**
  * @author Brian Wing Shun Chan
  */
@@ -26,8 +30,18 @@ public class AlloyException extends Exception {
 		super(msg);
 	}
 
+	public AlloyException(ResourceBundle resourceBundle, String pattern, Object... arguments) {
+		super(LanguageUtil.format(resourceBundle, pattern, arguments));
+	}
+
 	public AlloyException(String msg, boolean log) {
 		super(msg);
+
+		this.log = log;
+	}
+
+	public AlloyException(boolean log, ResourceBundle resourceBundle, String pattern, Object... arguments) {
+		super(LanguageUtil.format(resourceBundle, pattern, arguments));
 
 		this.log = log;
 	}

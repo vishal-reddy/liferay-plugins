@@ -335,11 +335,6 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 
 	@Override
 	public String translate(String pattern, Object... arguments) {
-		PortletConfig portletConfig = PortletConfigFactoryUtil.create(
-			portlet, servletContext);
-
-		ResourceBundle resourceBundle = portletConfig.getResourceBundle(locale);
-
 		return LanguageUtil.format(resourceBundle, pattern, arguments);
 	}
 
@@ -1006,6 +1001,12 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 	protected void initServletVariables() {
 		servletConfig = pageContext.getServletConfig();
 		servletContext = pageContext.getServletContext();
+
+		PortletConfig portletConfig = PortletConfigFactoryUtil.create(
+				portlet, servletContext);
+
+		resourceBundle = portletConfig.getResourceBundle(locale);
+
 		request = (HttpServletRequest)pageContext.getRequest();
 		response = (HttpServletResponse)pageContext.getResponse();
 	}
@@ -1548,6 +1549,7 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 	protected RenderRequest renderRequest;
 	protected RenderResponse renderResponse;
 	protected HttpServletRequest request;
+	protected ResourceBundle resourceBundle;
 	protected ResourceRequest resourceRequest;
 	protected ResourceResponse resourceResponse;
 	protected HttpServletResponse response;
